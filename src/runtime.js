@@ -148,7 +148,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
         // "properties" is an array of individual debugger properties to display
         // with their name and value, and some other optional settings.
         propsections.push({
-            "title": `${this.type.name}: Camera`,
+            "title": this.type.name,
             "properties": [
                 {"name": "Elevation", "value": this.elevation },
                 {"name": "Vertical Angle", "value": this.verticalAngle2D},
