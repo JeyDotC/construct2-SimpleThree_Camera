@@ -78,6 +78,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
     instanceProto.onCreate = function () {
         this.pixelsTo3DUnits = v => v;
         this.threeDimentionalUnitsToPixels = v => v;
+        this.angleTo3D = v => v;
 
         this.simpleThree = this.findSimpleThreeInstance();
         if (this.simpleThree === undefined) {
@@ -87,6 +88,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
 
         this.pixelsTo3DUnits = this.simpleThree.pixelsTo3DUnits.bind(this.simpleThree);
         this.threeDimentionalUnitsToPixels = this.simpleThree.threeDimentionalUnitsToPixels.bind(this.simpleThree);
+        this.angleTo3D = this.simpleThree.angleTo3D.bind(this.simpleThree);
 
         this.elevation = this.properties[0];
         this.verticalAngle2D = this.properties[1];
@@ -176,10 +178,6 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
                 acts.SetCameraFar.bind(this)(value);
                 break;
         }
-    };
-
-    instanceProto.angleTo3D = function (angle) {
-        return -cr.to_radians(angle + 90);
     };
 
     instanceProto.updateCameraAngle = function () {
