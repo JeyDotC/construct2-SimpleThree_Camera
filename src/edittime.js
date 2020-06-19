@@ -22,7 +22,7 @@ function GetBehaviorSettings() {
             "Represents a 3D Camera. This behavior will use the X and Y coordinates of the instance to position itself. The angle is used as the Y angle.",
         ].join('\n'),
         "author": "JeyDotC",
-        "help url": "<your website or a manual entry on Scirra.com>",
+        "help url": "https://github.com/JeyDotC/construct2-SimpleThree_Camera",
         "category": "Three Js",				// Prefer to re-use existing categories, but you can set anything here
         "flags": 0						// uncomment lines to enable flags...
     };
