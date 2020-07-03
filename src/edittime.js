@@ -35,7 +35,7 @@ if (typeof module !== 'undefined') {
 // Actions
 
 AddNumberParam("Camera Elevation", "The camera elevation in 2D Pixels. (Will be translated to camera's Y axis.)", 32);
-AddAction(0, 0, "Set Camera position from 2D coordinates", "Camera", "Camera position to (<b>{0}</b>, <b>{1}</b>) and elevation of <b>{2}</b>", "Set the camera position using 2D coordinates.", "SetCameraPositionFrom2D");
+AddAction(0, 0, "Set Elevation from 2D pixels", "Camera", "Camera position to (<b>{0}</b>, <b>{1}</b>) and elevation of <b>{2}</b>", "Set the camera Elevation using 2D pixels.", "SetCameraElevationFrom2D");
 
 AddNumberParam("Angle", "The camera angle in degrees. (Will be translated to camera's X axis angle in Radians.)", 0);
 AddAction(1, 0, "Set Camera Vertical Angle from 2D angle", "Camera", "Camera Vertical angle to (<b>{0}</b>) degrees", "Set Camera Vertical angle using 2D angle in degrees. This gets translated into the camera's X angle in radians.", "SetCameraVerticalAngleFrom2D");

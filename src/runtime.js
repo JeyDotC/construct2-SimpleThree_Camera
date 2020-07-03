@@ -99,7 +99,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
         this.camera = new THREE.PerspectiveCamera(this.fov, this.simpleThree.width / this.simpleThree.height, this.near, this.far);
         this.camera.rotation.order = 'YXZ';
 
-        this.simpleThree.camera = this.camera;
+        this.simpleThree.setCamera(this.camera);
     };
 
     // called when saving the full state of the game
@@ -125,7 +125,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
         // Closure Compiler renaming and breaking the save format
         const acts = this.behavior.acts;
 
-        acts.SetCameraPositionFrom2D.bind(this)(o["e"]);
+        acts.SetCameraElevationFrom2D.bind(this)(o["e"]);
         acts.SetCameraVerticalAngleFrom2D.bind(this)(o["va"]);
         acts.SetCameraFOV.bind(this)(o["fv"]);
         acts.SetCameraNear.bind(this)(o["n"]);
@@ -133,7 +133,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
     };
 
     instanceProto.tick = function () {
-        if (this.simpleThree && this.runtime.redraw) {
+        if (this.simpleThree /*&& this.runtime.redraw*/) {
             this.updateCameraAngle();
             this.updateCameraPosition();
         }
@@ -163,7 +163,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
         const acts = this.behavior.acts;
         switch (name) {
             case "Elevation" :
-                acts.SetCameraPositionFrom2D.bind(this)(value);
+                acts.SetCameraElevationFrom2D.bind(this)(value);
                 break;
             case "Vertical Angle"     :
                 acts.SetCameraVerticalAngleFrom2D.bind(this)(value);
@@ -215,7 +215,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
     function Acts() {
     }
 
-    Acts.prototype.SetCameraPositionFrom2D = function (elevation) {
+    Acts.prototype.SetCameraElevationFrom2D = function (elevation) {
         this.elevation = elevation;
         this.updateCameraPosition();
     };
