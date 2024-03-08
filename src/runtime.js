@@ -131,12 +131,7 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
         acts.SetCameraNear.bind(this)(o["n"]);
         acts.SetCameraFar.bind(this)(o["f"]);
     };
-
-    instanceProto.updateCameraAngle = function () {
-        this.camera.rotation.y = this.angleTo3D(cr.to_degrees(this.inst.angle));
-        this.camera.rotation.x = cr.to_radians(this.verticalAngle2D);
-    };
-
+	
     instanceProto.updateCameraPosition = function () {
         this.camera.position.set(
             this.pixelsTo3DUnits(this.inst.x),
@@ -147,7 +142,8 @@ cr.behaviors.SimpleThree_Camera = function (runtime) {
 
     instanceProto.tick = function () {
         if (this.simpleThree /*&& this.runtime.redraw*/) {
-            this.updateCameraAngle();
+			this.camera.rotation.y = this.angleTo3D(cr.to_degrees(this.inst.angle));
+			this.camera.rotation.x = cr.to_radians(this.verticalAngle2D);
             this.updateCameraPosition();
         }
     };
